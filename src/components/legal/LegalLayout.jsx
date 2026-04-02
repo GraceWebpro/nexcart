@@ -5,10 +5,10 @@ const LegalLayout = ({ title, children }) => {
   return (
     <>
       <Helmet>
-        <title>{title} | QuickBite</title>
+        <title>{title} | NexCart</title>
         <meta
           name="description"
-          content={`${title} | QuickBite`}
+          content={`${title} | NexCart`}
         />
       </Helmet>
 

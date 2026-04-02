@@ -4,15 +4,6 @@ import { useCart } from "../../context/CartContext";
 
 export default function ProductCard({ product, onQuickView }) {
     const { addToCart } = useCart();
-    
-  
-    // add to cart
-    const updateQty = (id, change) => {
-      setCart(prev => ({
-        ...prev,
-        [id]: Math.max(0, (prev[id] || 0) + change),
-      }))
-    }
 
     return (
       <div className="group relative">
