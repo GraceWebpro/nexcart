@@ -42,7 +42,7 @@ const Footer = () => {
       {/* 🔥 Floating Newsletter */}
       <div className="absolute left-1/2 -translate-x-1/2 -top-20 w-full max-w-6xl px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 p-10 rounded-3xl 
-        bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
+        bg-gradient-to-r from-white/10 to-primary backdrop-blur-xl border border-white/10 shadow-2xl">
 
           {/* Text */}
           <div>
