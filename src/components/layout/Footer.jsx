@@ -3,6 +3,7 @@ import { Scissors, Phone, Mail, MapPin, Instagram, Facebook, Twitter } from "luc
 import { NAV_LINKS } from '../../utils/constants';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useScrollSpy, scrollToSection } from '../hooks/useScrollSpy';
+import { MailQuestion } from 'lucide-react';
 
 const Footer = () => {
     const navigate = useNavigate();
@@ -37,12 +38,21 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-[#0A0A0A] text-white pt-40 pb-10 px-6">
+    <footer className="relative bg-[#0A0A0A] text-white pt-40 sm:pt-42 lg:pt-48 pb-10 px-6 mt-10 sm:mt-20">
 
       {/* 🔥 Floating Newsletter */}
-      <div className="absolute left-1/2 -translate-x-1/2 -top-20 w-full max-w-6xl px-6">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 p-10 rounded-3xl 
-        bg-gradient-to-r from-white/10 to-primary backdrop-blur-xl border border-white/10 shadow-2xl">
+      <div className="
+        absolute left-1/2 -translate-x-1/2 
+        -top-12 sm:-top-32 lg:-top-24 
+        w-full max-w-6xl px-4 sm:px-6
+      ">        
+      <div className="
+        flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8
+        p-6 sm:p-8 lg:p-10 
+        rounded-3xl 
+        bg-gradient-to-t from-white/10 to-primary 
+        backdrop-blur-xl border border-white/10 shadow-2xl
+      ">
 
           {/* Text */}
           <div>
@@ -56,8 +66,13 @@ const Footer = () => {
 
           {/* Input */}
           <div className="w-full lg:w-auto flex flex-col sm:flex-row gap-3">
-            <div className="flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 border border-white/10">
-              <Mail size={18} className="text-gray-300" />
+
+            <div className="
+              flex items-center gap-2 px-4 py-3 
+              rounded-full bg-white/10 border border-white/10
+              w-full sm:flex-1
+            ">
+              <Mail size={18} className="text-gray-300 shrink-0" />
               <input
                 type="email"
                 placeholder="Enter your email address"
@@ -65,9 +80,15 @@ const Footer = () => {
               />
             </div>
 
-            <button className="px-6 py-3 rounded-full bg-white text-black font-medium hover:opacity-90 transition">
+            <button className="
+              w-full sm:w-auto 
+              px-5 py-3 
+              rounded-full bg-white text-black font-medium 
+              hover:opacity-90 transition
+            ">
               Subscribe
             </button>
+
           </div>
 
         </div>
@@ -156,17 +177,17 @@ const Footer = () => {
             <div className="space-y-4 text-gray-400">
 
               <div className="flex gap-3 items-start">
-                <Phone size={18} className="text-primary mt-1" />
+                <Phone size={18} className="text-white mt-1" />
                 <p>(123) 456-7890</p>
               </div>
 
               <div className="flex gap-3 items-start">
-                <Mail size={18} className="text-primary mt-1" />
+                <MailQuestion size={18} className="text-primary bg-white mt-1" />
                 <p>hello@nexcart.com</p>
               </div>
 
               <div className="flex gap-3 items-start">
-                <MapPin size={18} className="text-primary mt-1" />
+                <MapPin size={18} className="text-white mt-1" />
                 <p>
                   123 Beauty Street
                   <br />

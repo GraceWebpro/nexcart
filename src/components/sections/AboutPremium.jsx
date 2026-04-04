@@ -3,7 +3,7 @@ import Trend from '../../assets/collection/trend.jpeg'
 
 export default function WhyChooseUs() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-24">
+    <section id="about" className="max-w-7xl mx-auto px-6 py-24">
 
       <div className="grid md:grid-cols-2 gap-16 items-center mb-16">
 

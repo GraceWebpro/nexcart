@@ -37,7 +37,7 @@ export default function ShopByCollection() {
   const navigate = useNavigate();
 
   return (
-    <section className="max-w-7xl mx-auto bg-background px-6 py-20">
+    <section id="new arrivals" className="max-w-7xl mx-auto bg-background px-6 py-20">
 
       {/* HEADER */}
       <div className="text-center mb-12">
@@ -57,12 +57,7 @@ export default function ShopByCollection() {
 
       <div className="relative">
 
-        {/* LEFT FADE */}
-        <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-primary to-transparent z-10 pointer-events-none" />
-
-        {/* RIGHT FADE */}
-        <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-primary to-transparent z-10 pointer-events-none" />
-
+        
         <div className="flex gap-6 overflow-x-auto pb-2 scrollbar-hide no-scrollbar">
 
             {collections.map((col, i) => (
@@ -81,7 +76,7 @@ export default function ShopByCollection() {
                 />
 
                 {/* DARK OVERLAY */}
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition" />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition" />
 
                 {/* CONTENT */}
                 <div className="absolute bottom-6 left-6 right-6 text-white">

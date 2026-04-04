@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function PromoBanner() {
     return (
-      <section className="max-w-7xl mx-auto px-6 py-20">
+      <section className="max-w-7xl mx-auto px-6 py-20 pb-4">
   
         <div className="relative rounded-3xl overflow-hidden p-10 md:p-16
         bg-[#0B0F1A] text-white">
@@ -52,7 +52,7 @@ export default function PromoBanner() {
             </div>
   
             {/* RIGHT (FLOATING PRODUCT) */}
-            <div className="relative flex justify-center">
+            <div className="relative flex justify-center mb-4">
   
               {/* PRODUCT IMAGE FLOAT */}
               <div className="relative z-10">
@@ -66,7 +66,7 @@ export default function PromoBanner() {
   
               {/* PRICE CARD (FLOATING) */}
               <div className="absolute bottom-0 translate-y-1/2 
-              bg-white text-black rounded-xl px-5 py-4 shadow-xl">
+              bg-white z-20 text-black rounded-xl px-5 py-4 shadow-xl">
   
                 <p className="text-sm opacity-60">
                   Special Price

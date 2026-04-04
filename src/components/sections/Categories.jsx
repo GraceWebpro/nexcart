@@ -24,7 +24,7 @@ const categories = [
 
 export default function Categories() {
   return (
-    <section className="bg-background py-20">
+    <section id='collections' className="bg-background py-20">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}

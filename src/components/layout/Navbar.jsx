@@ -12,6 +12,7 @@ import { FiMenu, FiSearch, FiShoppingCart, FiUser } from "react-icons/fi";
 import { CircleUserRound, Search } from 'lucide-react';
 import { MdOutlineSearch } from "react-icons/md";
 import TopBar from './TopBar';
+import MobileMenuDrawer from './MobileDrawer';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -137,57 +138,14 @@ const Navbar = () => {
       </div>
 
      {/* Mobile menu */}
-      <div
-        className={`fixed inset-0 z-50 bg-black/40 transition ${
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-      >
-        <div
-          className={`absolute left-0 top-0 h-full w-[280px] bg-background-card p-6 transition ${
-            isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-          onClick={(e) => e.stopPropagation()}
-        >
-
-          {/* Close Button */}
-          <div className="flex justify-between mb-8">
-            <span className="font-bold text-lg">Menu</span>
-            <button onClick={() => setIsMenuOpen(false)}>✕</button>
-          </div>
-
-          {/* NAV LINKS */}
-          <div className="flex flex-col gap-2 mt-20 text-text-primary">
-            {NAV_LINKS.map((link) => {
-              const isActive =
-                link.type === "route"
-                  ? location.pathname === link.path
-                  : activeSection === link.id;
-
-              return (
-                <button
-                  key={link.id}
-                  onClick={() => handleNavClick(link)}
-                  className={`text-left py-2 rounded-lg font-medium transition ${
-                    isActive
-                      ? "text-primary"
-                      : "hover:text-primary"
-                  }`}
-                >
-                  {link.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* ORDER CTA */}
-          <Link to="/shop">
-            <button className="w-full bg-primary text-white font-medium px-5 py-3 mt-6 rounded-xl flex items-center justify-center gap-2 hover:scale-[1.02] transition">
-              Shop Now
-            </button>
-          </Link>
-
-        </div>
-      </div>
+     <MobileMenuDrawer
+      isOpen={isMenuOpen}
+      onClose={() => setIsMenuOpen(false)}
+      NAV_LINKS={NAV_LINKS}
+      handleNavClick={handleNavClick}
+      activeSection={activeSection}
+      location={location}
+    />
 
       <CartDrawer
         isOpen={isCartOpen}
