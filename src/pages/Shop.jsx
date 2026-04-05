@@ -234,8 +234,8 @@ filteredProducts.sort((a, b) => a.price - b.price);
               className={`w-10 h-10 rounded-full text-sm transition
               ${
                 currentPage === i + 1
-                  ? "bg-primary text-white"
-                  : "bg-white/10 text-white hover:bg-primary"
+                  ? "bg-white/10 text-white hover:bg-primary"
+                  : "bg-primary text-white "
               }`}
             >
               {i + 1}
