@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import { flyToCart } from "../utils/flyToCart";
@@ -16,6 +17,13 @@ const CartPage = () => {
 
   const items = Object.values(cartItems);
 
+  const [showCheckout, setShowCheckout] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    address: "",
+    notes: "",
+  });
+
   if (items.length === 0) {
     return (
       <div className="min-h-[80vh] flex flex-col items-center justify-center">
@@ -33,7 +41,7 @@ const CartPage = () => {
   return (
     <div className="container py-16 mt-10">
       <Helmet>
-      <title>Your Cart | QuickBite</title>
+      <title>Your Cart | NexCart</title>
       <meta
         name="description"
         content="Review items in your cart before proceeding to checkout using the QuickBite template."
@@ -48,7 +56,7 @@ const CartPage = () => {
               <div
               key={item.id}
               className="flex items-center gap-4 p-4 rounded-xl
-              bg-white/40 dark:bg-white/10"
+              bg-white/40"
             >
               {/* Image */}
               <img
@@ -111,7 +119,7 @@ const CartPage = () => {
         </div>
 
         {/* Summary */}
-        <div className="p-6 border border-black/10 dark:border-white/20 rounded-xl h-fit">
+        <div className="p-6 border border-black/20 rounded-xl h-fit">
           <h3 className="font-bold text-xl mb-6">Order Summary</h3>
 
           <div className="flex justify-between mb-2">
@@ -131,12 +139,129 @@ const CartPage = () => {
 
           <Link
             to="/checkout"
-            className="block w-full text-center bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-xl"
+            className="block w-full text-center bg-gradient-to-r from-primary to-[#000435] text-white py-3 rounded-xl"
           >
             Proceed to Checkout
           </Link>
+          <div
+              onClick={() => setShowCheckout(true)}
+              className="block bg-green-500 text-white text-center py-3 rounded-xl font-semibold hover:scale-105 mt-3 cursor-pointer transition"
+            >
+              Checkout via WhatsApp
+          </div>
         </div>
       </div>
+
+      {showCheckout && (
+  <div className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center">
+    
+    {/* Overlay */}
+    <div
+      className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+      onClick={() => setShowCheckout(false)}
+    />
+
+    {/* Modal */}
+    <div
+      className="
+        relative w-full sm:max-w-md
+        bg-white dark:bg-dark
+        rounded-t-3xl sm:rounded-2xl
+        p-5 sm:p-6
+        shadow-2xl
+        animate-slideUp
+        max-h-[90vh] overflow-y-auto
+      "
+    >
+      {/* Drag handle (mobile feel) */}
+      <div className="w-10 h-1.5 bg-gray-300 rounded-full mx-auto mb-4 sm:hidden" />
+
+      <h2 className="text-lg sm:text-xl font-bold mb-4 text-center sm:text-left">
+        Complete Your Order
+      </h2>
+
+      {/* Order summary */}
+      <p className="text-sm text-gray-500 mb-4 text-center sm:text-left">
+        {Object.values(cartItems).length} items • ₦{totalPrice.toLocaleString()}
+      </p>
+
+      {/* Inputs */}
+      <div className="space-y-3">
+        <input
+          type="text"
+          placeholder="Your Name"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          className="w-full border p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+
+        <input
+          type="text"
+          placeholder="Delivery Address"
+          value={form.address}
+          onChange={(e) => setForm({ ...form, address: e.target.value })}
+          className="w-full border p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+
+        <textarea
+          placeholder="Notes (optional)"
+          value={form.notes}
+          onChange={(e) => setForm({ ...form, notes: e.target.value })}
+          className="w-full border p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+
+        <p className="text-xs text-gray-500">
+          We’ll use your WhatsApp number to contact you about this order.
+        </p>
+      </div>
+
+      {/* Actions */}
+      <div className="mt-5 flex flex-col sm:flex-row gap-3">
+        <button
+          onClick={() => setShowCheckout(false)}
+          className="w-full border py-3 rounded-xl"
+        >
+          Cancel
+        </button>
+
+        <button
+          onClick={() => {
+            if (!form.name || !form.address) {
+              alert("Please fill all required fields");
+              return;
+            }
+
+            const message = `
+            🍔 *NexCart Order*
+
+            🧾 *Items:*
+            ${Object.values(cartItems)
+              .map((i) => `• ${i.name} × ${i.qty} = ₦${(i.price * i.qty).toLocaleString()}`)
+              .join("\n")}
+
+            💰 *Total:* ₦${totalPrice}
+
+            👤 *Name:* ${form.name}
+            📍 *Address:* ${form.address}
+
+            📝 *Notes:* ${form.notes || "None"}
+
+            Thank you!
+            `;
+
+            const url = `https://wa.me/2347043421913?text=${encodeURIComponent(message)}`;
+            window.open(url, "_blank");
+
+            setShowCheckout(false);
+          }}
+          className="w-full bg-green-500 text-white py-3 rounded-xl disabled:opacity-50"
+        >
+          Continue to WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 };

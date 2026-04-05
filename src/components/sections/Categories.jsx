@@ -1,26 +1,4 @@
-import men from '../../assets/mens_watch.jpeg'
-import women from '../../assets/womens.jpeg'
-import tech from '../../assets/tech.jpeg'
-import access from '../../assets/collection/accesso.jpeg'
-
-const categories = [
-  {
-    name: "Men",
-    image: men,
-  },
-  {
-    name: "Women",
-    image: women,
-  },
-  {
-    name: "Tech",
-    image: tech,
-  },
-  {
-    name: "Accessories",
-    image: access,
-  },
-];
+import { categories } from "../../data/categories";
 
 export default function Categories() {
   return (

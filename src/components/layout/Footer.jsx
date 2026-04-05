@@ -4,6 +4,7 @@ import { NAV_LINKS } from '../../utils/constants';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useScrollSpy, scrollToSection } from '../hooks/useScrollSpy';
 import { MailQuestion } from 'lucide-react';
+import PremiumNewsletter from './NewsLetter';
 
 const Footer = () => {
     const navigate = useNavigate();
@@ -38,61 +39,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-[#0A0A0A] text-white pt-40 sm:pt-42 lg:pt-48 pb-10 px-6 mt-10 sm:mt-20">
+    <div className='mt-20'>
 
-      {/* 🔥 Floating Newsletter */}
-      <div className="
-        absolute left-1/2 -translate-x-1/2 
-        -top-12 sm:-top-32 lg:-top-24 
-        w-full max-w-6xl px-4 sm:px-6
-      ">        
-      <div className="
-        flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8
-        p-6 sm:p-8 lg:p-10 
-        rounded-3xl 
-        bg-gradient-to-t from-white/10 to-primary 
-        backdrop-blur-xl border border-white/10 shadow-2xl
-      ">
-
-          {/* Text */}
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-              Stay up to date about <br /> our latest offers
-            </h2>
-            <p className="text-gray-400 mt-3">
-              Get exclusive deals, updates & new meals.
-            </p>
-          </div>
-
-          {/* Input */}
-          <div className="w-full lg:w-auto flex flex-col sm:flex-row gap-3">
-
-            <div className="
-              flex items-center gap-2 px-4 py-3 
-              rounded-full bg-white/10 border border-white/10
-              w-full sm:flex-1
-            ">
-              <Mail size={18} className="text-gray-300 shrink-0" />
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="bg-transparent outline-none text-sm w-full placeholder-gray-400"
-              />
-            </div>
-
-            <button className="
-              w-full sm:w-auto 
-              px-5 py-3 
-              rounded-full bg-white text-black font-medium 
-              hover:opacity-90 transition
-            ">
-              Subscribe
-            </button>
-
-          </div>
-
-        </div>
-      </div>
+    <PremiumNewsletter />
+    <footer className="bg-[#0A0A0A] text-white pt-20 sm:pt-24 pb-10 px-6 mt-20 sm:mt-20">
 
       {/* 🔥 Main Footer Content */}
       <div className="max-w-7xl mx-auto">
@@ -109,8 +59,7 @@ const Footer = () => {
             </div>
 
             <p className="text-gray-400 leading-relaxed">
-            Premium hairstyling studio offering luxury braids,
-            wigs, silk press and modern beauty experiences.
+            Premium online store offering high-quality products, fast shipping, and a seamless shopping experience.
             </p>
 
             {/* Social */}
@@ -159,14 +108,14 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Our Services</h4>
+            <h4 className="text-lg font-semibold mb-6">Our Products</h4>
 
             <ul className="space-y-3 text-gray-400">
-            <li>Box Braids</li>
-            <li>Silk Press</li>
-            <li>Luxury Wigs</li>
-            <li>Boho Braids</li>
-            <li>Cornrows</li>
+            <li>New Arrivals</li>
+            <li>Best Sellers</li>
+            <li>Featured Products</li>
+            <li>Trending Items</li>
+            <li>Exclusive Deals</li>
             </ul>
           </div>
 
@@ -182,7 +131,7 @@ const Footer = () => {
               </div>
 
               <div className="flex gap-3 items-start">
-                <MailQuestion size={18} className="text-primary bg-white mt-1" />
+                <Mail size={18} className="text-white mt-1" />
                 <p>hello@nexcart.com</p>
               </div>
 
@@ -205,7 +154,7 @@ const Footer = () => {
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
 
         <p className='text-center'>
-          © {new Date().getFullYear()} LustraHair. All rights reserved. Built with ❤️ by GraceTech.
+          © {new Date().getFullYear()} NexCart. All rights reserved. Built with ❤️ by GraceTech.
         </p>
 
         <div className="flex gap-6 mt-3 md:mt-0">
@@ -222,6 +171,8 @@ const Footer = () => {
 
       </div>
     </footer>
+
+    </div>
   );
 };
 

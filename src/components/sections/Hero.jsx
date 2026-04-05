@@ -72,25 +72,27 @@ export default function Hero() {
       <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-primary-light blur-3xl opacity-30 rounded-full" />
       <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-primary-light blur-3xl opacity-20 rounded-full" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
-        
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">        
         {/* LEFT */}
         <div className="w-full">
           <p className="text-sm text-primary font-medium mb-4">
             NEW COLLECTION 2026
           </p>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] text-text-primary mb-6 max-w-xl text-balance">
+          <h1 className="
+            text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
+            font-bold leading-tight 
+            text-text-primary mb-6
+          ">            
             Discover Products That Elevate Your Style
           </h1>
 
-          <p className="text-text-secondary text-lg mb-8 max-w-md">
-            Premium quality items crafted to elevate your everyday lifestyle. 
+          <p className="text-text-secondary text-base sm:text-lg mb-8 max-w-md">            
             Designed for modern living and seamless experiences.
           </p>
 
           {/* CTA */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4">            
             <Link to='/shop'>
               <button className="bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-xl shadow-lg transition">
                 Shop Now
@@ -102,7 +104,7 @@ export default function Hero() {
           </div>
 
           {/* trust badges */}
-          <div className="flex items-center gap-6 mt-10 text-sm text-text-muted">
+          <div className="flex flex-wrap gap-4 mt-10 text-sm text-text-muted">
             <span>✔ Free Shipping</span>
             <span>✔ Secure Payment</span>
             <span>✔ 24/7 Support</span>
@@ -113,10 +115,15 @@ export default function Hero() {
         <div className="relative flex justify-center">
 
           {/* BACK LAYER CARD */}
-          <div className="absolute top-10 left-10 w-[280px] h-[360px] bg-white/40 rounded-2xl blur-2xl" />
+          <div className="absolute top-6 left-6 sm:top-10 sm:left-10 w-[200px] sm:w-[280px] h-[260px] sm:h-[360px] bg-white/40 rounded-2xl blur-2xl" />
 
           {/* MAIN CARD */}
-          <div className="bg-background-card rounded-2xl shadow-2xl p-6 w-[360px] md:w-[420px] transform rotate-[-6deg] hover:rotate-0 transition duration-500">
+          <div className="
+            bg-background-card rounded-2xl shadow-2xl p-5 sm:p-6
+            w-full max-w-[320px] sm:max-w-[360px] md:max-w-[420px]
+            transform rotate-[-3deg] sm:rotate-[-6deg] 
+            hover:rotate-0 transition duration-500
+          ">            
             <img
               src={product.image}
               alt={product.name}
@@ -129,7 +136,12 @@ export default function Hero() {
           </div>
 
           {/* FLOATING PRICE CARD */}
-          <div className="absolute bottom-[-30px] right-[10%] bg-background-card rounded-xl shadow-lg p-4 w-[180px]">
+          <div className="
+            absolute bottom-[-20px] sm:bottom-[-30px] 
+            right-4 sm:right-[10%] 
+            bg-background-card rounded-xl shadow-lg p-3 sm:p-4 
+            w-[140px] sm:w-[180px]
+          ">            
             <p className="text-sm text-text-secondary">Now Trending</p>
             <p className="text-lg font-bold text-text-primary">
               {product.price}
@@ -137,7 +149,7 @@ export default function Hero() {
           </div>
 
           {/* MANUAL CONTROLS */}
-          <div className="absolute -bottom-16 flex gap-2">
+          <div className="absolute -bottom-12 sm:-bottom-16 flex gap-2">            
             {filtered.map((_, i) => (
               <button
                 key={i}
@@ -150,8 +162,7 @@ export default function Hero() {
           </div>
 
           {/* GLOW */}
-          <div className="absolute -z-10 w-[300px] h-[300px] bg-primary-light rounded-full blur-2xl opacity-40" />
-        </div>
+          <div className="absolute -top-40 -right-40 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-primary-light blur-3xl opacity-30 rounded-full" />        </div>
       </div>
 
       <BrandMarquee />

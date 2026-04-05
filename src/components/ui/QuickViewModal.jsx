@@ -5,7 +5,7 @@ export default function QuickView({ product, onClose }) {
     const { addToCart } = useCart();
 
     return (
-      <div className="fixed inset-0 z-[999] flex items-center justify-center">
+      <div className="fixed inset-0 z-[99999] flex items-center justify-center">
   
         {/* BACKDROP */}
         <div
@@ -49,7 +49,7 @@ export default function QuickView({ product, onClose }) {
   
           <button
             onClick={onClose}
-            className="absolute text-primary top-4 right-4 text-xl"
+            className="absolute text-primary top-2 right-2 text-xl"
           >
             ✕
           </button>

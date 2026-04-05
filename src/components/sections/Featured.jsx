@@ -36,7 +36,7 @@ export default function FeaturedProducts({ products }) {
         </div>
 
         {/* FILTER TABS */}
-        <div className="flex gap-3 overflow-x-auto scrollbar-hide">
+        <div className="flex gap-3 overflow-x-auto scrollbar-hide no-scrollbar">
           {tabs.map((tab) => (
             <button
               key={tab.value}
@@ -54,7 +54,7 @@ export default function FeaturedProducts({ products }) {
       </div>
 
       {/* MOBILE SWIPE */}
-      <div className="flex md:hidden gap-4 overflow-x-auto pb-2 scrollbar-hide">
+      <div className="flex md:hidden gap-4 overflow-x-auto pb-2 scrollbar-hide no-scrollbar">
         {filteredProducts.slice(0, 8).map((product) => (
           <div key={product.id} className="min-w-[220px]">
             <ProductCard

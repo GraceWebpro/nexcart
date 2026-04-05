@@ -1,200 +1,190 @@
-import React, { useState } from "react"
-import { FaStar, FaPlus, FaMinus } from "react-icons/fa"
-import { useCart } from "../../context/CartContext";
-import { flyToCart } from "../../utils/flyToCart";
-import { mealsData } from "./../../data/meals";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import BrandMarquee from "../ui/BrandMarque";
 
-const MenuSection = () => {
-  const [cart, setCart] = useState({})
-  const [selectedItem, setSelectedItem] = useState(null)
-  const { cartItems, addToCart, removeFromCart } = useCart();
-  const [addedId, setAddedId] = useState(null);
+const products = [
+  {
+    id: 1,
+    name: "Premium Headphones",
+    price: "$129.00",
+    category: "Tech",
+    image: "/assets/headphone.jpeg",
+  },
+  {
+    id: 2,
+    name: "Minimal Sneakers",
+    price: "$89.00",
+    category: "Men",
+    image: "/assets/sneakers.jpeg",
+  },
+  {
+    id: 3,
+    name: "Elegant Handbag",
+    price: "$149.00",
+    category: "Women",
+    image:
+      "https://images.unsplash.com/photo-1584917865442-de89df76afd3",
+  },
+];
 
-  // add to cart
-  const updateQty = (id, change) => {
-    setCart(prev => ({
-      ...prev,
-      [id]: Math.max(0, (prev[id] || 0) + change),
-    }))
-  }
+const categories = ["All", "Men", "Women", "Tech"];
 
-  const popularMeals = mealsData.filter(meal => meal.isPopular).slice(0, 3);
+export default function HeroSec() {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [filtered, setFiltered] = useState(products);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (activeCategory === "All") {
+      setFiltered(products);
+    } else {
+      setFiltered(products.filter((p) => p.category === activeCategory));
+    }
+    setIndex(0);
+  }, [activeCategory]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % filtered.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [filtered]);
+
+  const product = filtered[index];
 
   return (
-    <section className="py-20 bg-light dark:bg-dark text-dark dark:text-light">
-      <div className="container">
+    <section className="relative bg-background overflow-hidden">
+      
+      {/* Background Glow */}
+      <div className="absolute -top-32 -right-32 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-primary-light blur-3xl opacity-30 rounded-full" />
+      <div className="absolute -bottom-32 -left-32 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-primary-light blur-3xl opacity-20 rounded-full" />
 
-        {/* Header */}
-        <div className="text-center mb-14">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-            Popular Meals 🔥
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 mt-3">
-            Freshly prepared. Delivered fast. Loved by customers.
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 grid lg:grid-cols-2 gap-12 items-center">
+
+        {/* LEFT CONTENT */}
+        <div className="w-full">
+
+          {/* Badge */}
+          <span className="inline-block text-xs sm:text-sm text-primary font-medium mb-4 tracking-wide">
+            NEW COLLECTION 2026
+          </span>
+
+          {/* Heading */}
+          <h1 className="
+            text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
+            font-bold leading-tight text-text-primary mb-6
+          ">
+            Discover Products That Elevate Your Style
+          </h1>
+
+          {/* Description */}
+          <p className="text-text-secondary text-base sm:text-lg mb-8 max-w-md">
+            Premium quality items crafted for modern living. Designed to enhance your lifestyle with elegance and performance.
           </p>
-        </div>
 
-        {/* Menu Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          {popularMeals.map(item => (
-            <div
-              key={item.id}
-              className="menu-card 
-                relative rounded-2xl overflow-hidden
-                bg-white/70 dark:bg-[#1f1835]/80
-                backdrop-blur-xl
-                border border-white/20
-                shadow-lg hover:shadow-2xl
-                transition duration-300
-                hover:-translate-y-2
-                group
-              "
-            >
-
-              {/* Bestseller Badge */}
-              {item.bestseller && (
-                <div className="absolute top-4 left-4 bg-primary text-white text-xs px-3 py-1 rounded-full z-10">
-                  ⭐ Bestseller
-                </div>
-              )}
-
-              {/* Image */}
-              <div
-                onClick={() => setSelectedItem(item)}
-                className="cursor-pointer overflow-hidden"
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-56 object-cover group-hover:scale-110 transition duration-500"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-
-                {/* Rating */}
-                <div className="flex items-center gap-2 text-yellow-500 text-sm">
-                  <FaStar />
-                  {item.rating}
-                  <span className="text-gray-500 dark:text-gray-400">
-                    (120)
-                  </span>
-                </div>
-
-                {/* Name */}
-                <h3 className="text-xl font-semibold mt-2">
-                  {item.name}
-                </h3>
-
-                {/* Price */}
-                <div className="flex items-center gap-3 mt-2">
-                  <span className="text-lg font-bold text-primary">
-                    ₦{item.price.toLocaleString()}
-                  </span>
-
-                  {item.oldPrice && (
-                    <span className="line-through text-gray-400 text-sm">
-                      ₦{item.oldPrice.toLocaleString()}
-                    </span>
-                  )}
-                </div>
-
-                {/* Cart Controls */}
-               {/* Cart Controls */}
-                <div className="flex items-center justify-between mt-6">
-
-                {/* Quantity Selector */}
-                {cartItems[item.id] ? (
-                  <div className="flex items-center gap-3 bg-gray-100 dark:bg-dark px-3 py-2 rounded-lg">
-                      
-                      <button onClick={() => removeFromCart(item.id)}>
-                        <FaMinus />
-                      </button>
-
-                      <span>{cartItems[item.id].qty}</span>
-
-                      <button onClick={(e) => {
-                          flyToCart(e);
-                          addToCart(item);
-                      }}>
-                        <FaPlus />
-                      </button>
-
-                  </div>
-                ) : (
-                <button
-                    onClick={(e) => {
-                        flyToCart(e);
-                        addToCart(item);
-                        setAddedId(item.id);
-                        setTimeout(() => setAddedId(null), 1000);
-                    }}
-                    className={`px-4 py-2 rounded-lg transition
-                        ${addedId === item.id
-                        ? "bg-green-500 text-white scale-110"
-                        : "bg-primary text-white hover:scale-105"
-                        }`}
-                    >
-                    {addedId === item.id ? "✓ Added" : "Add to Cart"}
-                    </button>
-                )}
-
-                {/* WhatsApp Order */}
-                <a
-                href={`https://wa.me/234XXXXXXXXXX?text=I want ${item.name}`}
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm text-primary font-medium hover:underline"
-                >
-                Order
-                </a>
-
-                </div>
-
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Quick View Modal */}
-        {selectedItem && (
-          <div
-            onClick={() => setSelectedItem(null)}
-            className="fixed inset-0 bg-black/60 flex items-center justify-center z-50"
-          >
-            <div
-              onClick={e => e.stopPropagation()}
-              className="bg-white dark:bg-dark rounded-2xl p-8 max-w-md w-full"
-            >
-              <img
-                src={selectedItem.image}
-                alt=""
-                className="w-full h-60 object-cover rounded-xl"
-              />
-
-              <h3 className="text-2xl font-bold mt-4">
-                {selectedItem.name}
-              </h3>
-
-              <p className="text-gray-600 dark:text-gray-400 mt-2">
-                Freshly prepared with premium ingredients. Fast delivery guaranteed.
-              </p>
-
-              <button
-                onClick={() => setSelectedItem(null)}
-                className="mt-6 w-full py-3 rounded-lg bg-primary text-white"
-              >
-                Close
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8">
+            <Link to="/shop">
+              <button className="w-full sm:w-auto bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-xl shadow-lg transition">
+                Shop Now
               </button>
-            </div>
+            </Link>
+
+            <button className="w-full sm:w-auto px-6 py-3 rounded-xl border border-border text-text-primary hover:bg-background-secondary transition">
+              Explore
+            </button>
           </div>
-        )}
 
+          {/* Categories */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`
+                  px-4 py-2 rounded-full text-sm transition
+                  ${
+                    activeCategory === cat
+                      ? "bg-primary text-white"
+                      : "bg-background-secondary text-text-secondary hover:bg-primary/10"
+                  }
+                `}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Trust */}
+          <div className="flex flex-wrap gap-4 text-sm text-text-muted">
+            <span>✔ Free Shipping</span>
+            <span>✔ Secure Payment</span>
+            <span>✔ 24/7 Support</span>
+          </div>
+        </div>
+
+        {/* RIGHT VISUAL */}
+        <div className="relative flex justify-center">
+
+          {/* Glow */}
+          <div className="absolute w-[250px] sm:w-[300px] h-[250px] sm:h-[300px] bg-primary-light blur-2xl opacity-40 rounded-full" />
+
+          {/* Back Card */}
+          <div className="absolute top-6 left-6 sm:top-10 sm:left-10 w-[200px] sm:w-[260px] h-[260px] sm:h-[340px] bg-white/30 rounded-2xl blur-2xl" />
+
+          {/* Main Card */}
+          <div className="
+            relative bg-background-card rounded-2xl shadow-2xl 
+            p-5 sm:p-6 
+            w-full max-w-[300px] sm:max-w-[360px] md:max-w-[420px]
+            transform rotate-[-3deg] sm:rotate-[-6deg] 
+            hover:rotate-0 transition duration-500
+          ">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="rounded-xl mb-4 h-[200px] sm:h-[240px] w-full object-cover"
+            />
+
+            <h3 className="text-text-primary font-semibold">
+              {product.name}
+            </h3>
+
+            <p className="text-text-secondary">{product.price}</p>
+          </div>
+
+          {/* Floating Card */}
+          <div className="
+            absolute bottom-[-20px] sm:bottom-[-30px] 
+            right-4 sm:right-[10%]
+            bg-background-card rounded-xl shadow-lg 
+            p-3 sm:p-4 
+            w-[140px] sm:w-[180px]
+          ">
+            <p className="text-xs sm:text-sm text-text-secondary">
+              Now Trending
+            </p>
+            <p className="text-base sm:text-lg font-bold text-text-primary">
+              {product.price}
+            </p>
+          </div>
+
+          {/* Dots */}
+          <div className="absolute -bottom-12 sm:-bottom-16 flex gap-2">
+            {filtered.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                className={`w-2.5 h-2.5 rounded-full transition ${
+                  i === index ? "bg-primary scale-110" : "bg-border"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-    </section>
-  )
-}
 
-export default MenuSection
+      <BrandMarquee />
+    </section>
+  );
+}

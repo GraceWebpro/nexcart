@@ -19,6 +19,7 @@ import Terms from "./components/legal/Terms";
 import CookiesPolicy from "./components/legal/Cookies";
 import Refund from "./components/legal/Refund";
 import Shop from "./pages/Shop";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
 
@@ -60,6 +61,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/shop" element={<Shop />} /> 
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/product/:slug" element={<ProductDetails />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/order-success" element={<OrderSuccess />} />
           <Route path="*" element={<NotFound />} />

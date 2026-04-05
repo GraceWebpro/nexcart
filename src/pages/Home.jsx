@@ -3,7 +3,6 @@ import Testimonials from '../components/sections/Testimonials'
 import AboutPremium from '../components/sections/AboutPremium'
 import { useLocation } from "react-router-dom";
 import { scrollToSection } from "../components/hooks/useScrollSpy";
-import { mealsData } from "../data/meals";
 import { Helmet } from 'react-helmet';
 import Categories from '../components/sections/Categories'
 import Hero from '../components/sections/Hero'
@@ -25,14 +24,6 @@ function Home() {
 
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  // Filter logic
-  const filteredMeals = useMemo(() => {
-    if (selectedCategory === "all") return mealsData;
-
-    return mealsData.filter(
-      (meal) => meal.category === selectedCategory
-    );
-  }, [selectedCategory]);
 
   return (
     <div>

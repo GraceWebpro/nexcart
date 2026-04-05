@@ -1,32 +1,37 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 
-const faqs = [
+export const faqs = [
   {
-    question: "How does ordering work?",
+    question: "How do I place an order?",
     answer:
-      "Users can browse meals, add items to their cart, and proceed through the checkout process. This template demonstrates the UI flow for a modern food ordering experience.",
+      "Browse our products, add the items you like to your cart, and proceed to checkout. You can pay securely using credit/debit cards, PayPal, or other supported payment methods.",
   },
   {
-    question: "Does this template include a backend?",
+    question: "What payment methods do you accept?",
     answer:
-      "No. QuickBite is a frontend UI template built with React and Tailwind CSS. Developers can integrate their own backend, APIs, or payment systems.",
+      "We accept all major credit and debit cards, PayPal, Apple Pay, and Google Pay. All payments are processed securely.",
   },
   {
-    question: "Can I customize the design?",
+    question: "Can I track my order?",
     answer:
-      "Yes. The template is built with Tailwind CSS, making it easy to customize colors, layouts, and components to fit your brand.",
+      "Yes! Once your order is confirmed, you will receive a tracking number via email to monitor your shipment until it arrives at your doorstep.",
   },
   {
-    question: "Is the template responsive?",
+    question: "What is your return policy?",
     answer:
-      "Yes. QuickBite is fully responsive and optimized for mobile, tablet, and desktop devices.",
+      "We offer a 30-day return policy on most products. Items must be in their original condition and packaging. Please contact our support team to initiate a return.",
   },
   {
-    question: "Can I use this template for commercial projects?",
+    question: "Is your website mobile-friendly?",
     answer:
-      "Yes. Once purchased, you can use the template for personal or commercial projects depending on the license provided.",
+      "Absolutely. Our e-commerce store is fully responsive and optimized for desktop, tablet, and mobile devices for a smooth shopping experience.",
   },
+  {
+    question: "Can I use products purchased for commercial purposes?",
+    answer:
+      "Depending on the product, commercial use may be allowed. Please check the product description or contact our support team for clarification.",
+  }
 ];
 
 const FAQ = () => {
@@ -40,7 +45,7 @@ const FAQ = () => {
     <div className="max-w-4xl mx-auto px-6 py-20 mt-10">
 
       <Helmet>
-        <title>FAQ | QuickBite</title>
+        <title>FAQ | NexCart</title>
         <meta
           name="description"
           content="Frequently asked questions about the QuickBite food ordering template."

@@ -80,7 +80,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
             >
               {/* Image */}
               <img
-                src={item.image}
+                src={item.images?.[0]}
                 alt={item.name}
                 className="w-16 h-16 rounded-lg object-cover"
               />

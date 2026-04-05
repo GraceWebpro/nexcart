@@ -56,7 +56,7 @@ const CheckoutPage = () => {
   return (
     <div className="container py-16 mt-10">
       <Helmet>
-      <title>Checkout | QuickBite</title>
+      <title>Checkout | NexCart</title>
       <meta
         name="description"
         content="Secure checkout page design included in the QuickBite React food ordering template."
@@ -72,8 +72,8 @@ const CheckoutPage = () => {
             required
             placeholder="Full Name"
             className="w-full mt-2 px-4 py-3 rounded-xl
-            bg-white/80 dark:bg-white/10
-            border border-gray-200 dark:border-white/20
+            bg-white/60
+            border border-gray-300
             outline-none focus:ring-2 focus:ring-primary"
           />
 
@@ -81,8 +81,8 @@ const CheckoutPage = () => {
             required
             placeholder="Phone Number"
             className="w-full mt-2 px-4 py-3 rounded-xl
-            bg-white/80 dark:bg-white/10
-            border border-gray-200 dark:border-white/20
+            bg-white/60
+            border border-gray-300
             outline-none focus:ring-2 focus:ring-primary"
           />
 
@@ -90,8 +90,8 @@ const CheckoutPage = () => {
             required
             placeholder="Delivery Address"
             className="w-full mt-2 px-4 py-3 rounded-xl
-            bg-white/80 dark:bg-white/10
-            border border-gray-200 dark:border-white/20
+            bg-white/60
+            border border-gray-300
             outline-none focus:ring-2 focus:ring-primary"
           />
 
@@ -136,8 +136,8 @@ const CheckoutPage = () => {
                     type="text"
                     placeholder="Card Number"
                     className="w-full mt-2 px-4 py-3 rounded-xl
-                    bg-white/80 dark:bg-white/10
-                    border border-gray-200 dark:border-white/20
+                    bg-white/60
+                    border border-gray-300
                     outline-none focus:ring-2 focus:ring-primary"
                     />
                     <div className="flex gap-3">
@@ -145,16 +145,16 @@ const CheckoutPage = () => {
                         type="text"
                         placeholder="MM/YY"
                         className="w-full mt-2 px-4 py-3 rounded-xl
-                        bg-white/80 dark:bg-white/10
-                        border border-gray-200 dark:border-white/20
+                        bg-white/60
+                        border border-gray-300
                         outline-none focus:ring-2 focus:ring-primary"
                     />
                     <input
                         type="text"
                         placeholder="CVV"
                         className="w-full mt-2 px-4 py-3 rounded-xl
-                        bg-white/80 dark:bg-white/10
-                        border border-gray-200 dark:border-white/20
+                        bg-white/60
+                        border border-gray-300
                         outline-none focus:ring-2 focus:ring-primary"
                     />
                     </div>
@@ -165,7 +165,7 @@ const CheckoutPage = () => {
             <div className="mt-4 p-4 bg-white/80 dark:bg-white/10 rounded-lg">
                 <p className="font-semibold">Bank Details:</p>
                 <p>Bank: Demo Bank</p>
-                <p>Account Name: QuickBite Ltd</p>
+                <p>Account Name: NexCart Ltd</p>
                 <p>Account No: 1234567890</p>
             </div>
             )}
@@ -179,14 +179,14 @@ const CheckoutPage = () => {
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-xl"
+            className="w-full bg-gradient-to-r from-primary to-[#000435] text-white py-3 rounded-xl"
           >
             Pay ₦{totalPrice.toLocaleString()}
           </button>
         </form>
 
         {/* Summary */}
-        <div className="p-2 border border-black/10 dark:border-white/20 rounded-xl h-fit">
+        <div className="p-2 border border-gray-300 rounded-xl h-fit">
           <h3 className="font-bold text-xl mb-6">Order Summary</h3>
 
           <div className="lg:col-span-2 space-y-6">

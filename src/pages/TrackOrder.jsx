@@ -5,7 +5,7 @@ const TrackOrder = () => {
     <div className="max-w-xl mx-auto py-20 px-6 text-center mt-10">
 
       <Helmet>
-        <title>Track Order | QuickBite</title>
+        <title>Track Order | NexCart</title>
       </Helmet>
 
       <h1 className="text-3xl font-bold mb-6">

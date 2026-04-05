@@ -14,7 +14,7 @@ export default function WhyChooseUs() {
           </p>
 
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary leading-tight mb-6">
-            Designed for modern lifestyles. <br />
+            Designed for modern lifestyles.
             Built for seamless shopping.
           </h2>
 

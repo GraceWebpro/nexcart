@@ -4,7 +4,7 @@ export default function PromoBanner() {
     return (
       <section className="max-w-7xl mx-auto px-6 py-20 pb-4">
   
-        <div className="relative rounded-3xl overflow-hidden p-10 md:p-16
+        <div className="relative rounded-3xl overflow-hidden p-6 sm:p-8 md:p-12 lg:p-16
         bg-[#0B0F1A] text-white">
   
           {/* SUBTLE GRADIENT OVERLAY */}
@@ -36,23 +36,34 @@ export default function PromoBanner() {
                 Elevate your style with exclusive discounts.
               </p>
   
-              <div className="flex gap-4">
-                <Link to='/shop'>
-                  <button className="bg-white text-primary px-6 py-3 rounded-xl font-semibold 
-                  hover:scale-105 transition">
+              <div className="flex flex-col sm:flex-row w-full sm:w-auto max-w-md gap-3 sm:gap-4">
+                <Link to="/shop" className="w-full sm:w-auto">
+                  <button className="
+                    w-full sm:w-auto
+                    bg-white text-primary 
+                    px-5 py-3 sm:px-6 sm:py-3 
+                    rounded-xl font-semibold
+                    hover:scale-[1.02] sm:hover:scale-105
+                    transition
+                  ">
                     Shop Now
                   </button>
                 </Link>
   
-                <button className="border border-white/20 px-6 py-3 rounded-xl 
-                hover:bg-white/10 transition">
+                <button className="
+                  w-full sm:w-auto
+                  border border-white/20 
+                  px-5 py-3 sm:px-6 sm:py-3 
+                  rounded-xl 
+                  hover:bg-white/10 transition
+                ">
                   Explore Deals
                 </button>
               </div>
             </div>
   
             {/* RIGHT (FLOATING PRODUCT) */}
-            <div className="relative flex justify-center mb-4">
+            <div className="relative flex justify-center mb-8 md:mb-6">
   
               {/* PRODUCT IMAGE FLOAT */}
               <div className="relative z-10">
