@@ -17,7 +17,7 @@ export default function QuickView({ product, onClose }) {
         <div className="relative bg-white rounded-2xl p-6 w-[90%] max-w-3xl grid md:grid-cols-2 gap-6 shadow-xl">
   
           <img
-            src={product.image}
+            src={product.images?.[0]}
             alt={product.name}
             className="rounded-xl w-full h-[300px] object-cover"
           />

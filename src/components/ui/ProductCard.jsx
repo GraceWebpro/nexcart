@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 import { flyToCart } from "../../utils/flyToCart";
 import { useCart } from "../../context/CartContext";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({ product, onQuickView }) {
     const { addToCart } = useCart();
+    const navigate = useNavigate();
 
     return (
-      <Link to={`/product/${product.slug}`}>
-      <div className="group relative">
+      <div onClick={() => navigate(`/product/${product.slug}`)} className="group relative">
   
         {/* IMAGE */}
         <div className="relative overflow-hidden rounded-2xl bg-background-card group">
@@ -43,7 +43,11 @@ export default function ProductCard({ product, onQuickView }) {
             ">
 
               <button
-                onClick={onQuickView}
+                  onClick={(e) => {
+                    e.stopPropagation(); // STOP the Link from triggering
+                    onQuickView(product); // pass product if needed
+                  }}
+                
                 className="
                   w-full
                   bg-white text-black 
@@ -58,9 +62,10 @@ export default function ProductCard({ product, onQuickView }) {
 
               <button
                 onClick={(e) => {
+                  e.stopPropagation(); // STOP the Link from triggering
                   flyToCart(e);
                   addToCart(product);
-                }}
+                }}              
                 className="
                   w-full
                   bg-primary text-white 
@@ -89,6 +94,5 @@ export default function ProductCard({ product, onQuickView }) {
           </p>
         </div>
       </div>
-      </Link>
     );
   }
