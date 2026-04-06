@@ -63,11 +63,13 @@ const CartDrawer = ({ isOpen, onClose }) => {
                 Looks like you haven't added any product yet.
               </p>
             
-              <Link
-                to="/shop"
-                className="px-6 py-3 bg-primary text-white rounded-xl"
-              >
-                Shop Now
+              <Link to="/shop">
+                <button
+                  onClick={onClose}
+                  className="w-full bg-primary text-white font-medium px-5 py-3 mt-6 rounded-xl"
+                >
+                  Shop Now
+                </button>
               </Link>
             </div>
           )}

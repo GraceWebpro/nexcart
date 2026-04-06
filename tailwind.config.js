@@ -17,7 +17,7 @@ module.exports = {
         },
         primary: {
           DEFAULT: "#060917",
-          hover: "#1E40AF",
+          hover: "#000435",
           light: "#DBEAFE",
         },
         border: {

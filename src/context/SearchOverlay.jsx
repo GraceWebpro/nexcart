@@ -1,8 +1,10 @@
 import { useState } from "react";
 import products from "../data/products";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchOverlay({ searchOpen, setSearchOpen }) {
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   const filtered = products.filter((p) =>
     p.name.toLowerCase().includes(query.toLowerCase())
@@ -44,6 +46,7 @@ export default function SearchOverlay({ searchOpen, setSearchOpen }) {
                 filtered.map((item) => (
                   <div
                     key={item.id}
+                    onClick={() => navigate(`/product/${item.slug}`)}
                     className="flex items-center gap-4 p-4 hover:bg-background-secondary cursor-pointer transition"
                   >
                     <img

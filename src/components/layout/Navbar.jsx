@@ -125,15 +125,6 @@ const Navbar = () => {
             </button>
           </Link>
           
-          {/* Mobile menu toggle */}
-          {/* <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lgx:hidden p-2 rounded-lg hover:bg-gray-100 transition" 
-            aria-label='menu'
-            aria-expanded={isMenuOpen}
-          >
-            {isMenuOpen ? <X className='w-6 h-6' /> : <Menu className='w-6 h-6' />}
-          </button> */}
         </div>
       </div>
 

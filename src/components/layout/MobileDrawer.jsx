@@ -57,7 +57,7 @@ const MobileMenuDrawer = ({
         </div>
 
         {/* CTA */}
-        <Link to="/shop">
+        <Link to="/shop" onClick={onClose}>
           <button className="w-full bg-primary text-white font-medium px-5 py-3 mt-6 rounded-xl">
             Shop Now
           </button>

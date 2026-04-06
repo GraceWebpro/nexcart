@@ -28,17 +28,27 @@ function Home() {
   return (
     <div>
 
-      <Helmet>
-        <title>QuickBite | Fast Food Ordering React Template by GraceTech</title>
-        <meta
-          name="description"
-          content="QuickBite is a modern React and Tailwind CSS food ordering UI template designed for restaurants, cloud kitchens, and delivery startups."
-        />
-        <meta property="og:title" content="QuickBite Food Ordering Template" />
-        <meta property="og:description" content="Modern React + Tailwind food ordering UI template." />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/preview.png" />
-      </Helmet>
+        <Helmet>
+          <title>NexCart – Premium React eCommerce Template</title>
+
+          <meta
+            name="description"
+            content="NexCart is a modern, high-performance React and Tailwind CSS eCommerce template built for online stores, fashion brands, and digital products. Fully responsive, scalable, and designed for premium user experience."
+          />
+
+          {/* Open Graph (for sharing) */}
+          <meta property="og:title" content="NexCart – Premium React eCommerce Template" />
+          <meta
+            property="og:description"
+            content="A modern and premium eCommerce UI template built with React & Tailwind CSS. Perfect for online stores and startups."
+          />
+          <meta property="og:type" content="website" />
+          <meta property="og:image" content="/preview.png" />
+
+          {/* SEO Extras */}
+          <meta name="keywords" content="React ecommerce template, Tailwind CSS shop, online store UI, ecommerce frontend, NexCart" />
+          <meta name="author" content="GraceTech" />
+        </Helmet>
       <main>
         <Hero />
         <Categories />      
