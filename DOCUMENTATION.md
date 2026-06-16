@@ -1,32 +1,37 @@
-# QuickBite – React Food Ordering Template
+# NexCart – React eCommerce Template with Tailwind CSS
 
-QuickBite is a modern food ordering UI template built with React and Tailwind CSS.
+NexCart is a premium eCommerce website template built with React and Tailwind CSS.
 
-Designed for restaurants, food delivery startups, and online menu websites.
+Designed for online stores, fashion brands, electronics shops, lifestyle businesses, and modern eCommerce startups looking for a clean, conversion-focused shopping experience.
 
 ---
 
 ## Features
 
-- Modern responsive design
-- Cart system with quantity control
-- Checkout UI flow
-- Order success page
-- Meal filtering and sorting
-- Category browsing
-- WhatsApp checkout integration
-- Light / Dark mode
-- Framer Motion animations
-- Mobile-first UI
+* Modern eCommerce storefront
+* Smart product management system
+* Shopping cart functionality
+* Product filtering and category browsing
+* Responsive mobile-first design
+* WhatsApp order integration
+* Framer Motion animations
+* SEO-friendly structure
+* Reusable UI components
+* Fast and optimized performance
+* Clean and modern typography
+* Easy customization with Tailwind CSS
 
 ---
 
 ## Tech Stack
 
-React  
-Tailwind CSS  
-Framer Motion  
-React Router  
+React
+
+Tailwind CSS
+
+Framer Motion
+
+React Router
 
 ---
 
@@ -34,35 +39,35 @@ React Router
 
 1. Clone the repository
 
-
-git clone https://github.com/gracewebpro/quickbite
-
+```bash
+git clone https://github.com/gracewebpro/nexcart
+```
 
 2. Install dependencies
 
-
+```bash
 npm install
-
+```
 
 3. Start development server
 
-
+```bash
 npm start
-
+```
 
 ---
 
 ## Build for Production
 
-
+```bash
 npm run build
-
+```
 
 ---
 
 ## Folder Structure
 
-
+```text
 src/
 
 components
@@ -71,29 +76,31 @@ pages
 context
 utils
 data
-
+assets
+```
 
 ---
 
-## Editing Meals
+## Editing Products
 
-Meals are located in:
+Products are located in:
 
-
-src/data/mealsData.js
-
+```text
+src/data/productsData.js
+```
 
 Example:
 
-
+```javascript
 {
-id: 1,
-name: "Chicken Burger",
-price: 4500,
-category: "fastfood",
-image: "image-url"
+  id: 1,
+  name: "Premium Headphones",
+  price: 129.99,
+  category: "electronics",
+  images: ["image-url"],
+  featured: true
 }
-
+```
 
 ---
 
@@ -101,37 +108,64 @@ image: "image-url"
 
 Edit:
 
-
+```text
 src/data/categories.js
-
-
----
-
-## Changing Colors
-
-Edit:
-
-
-tailwind.config.js
-
+```
 
 Example:
 
+```javascript
+{
+  id: 1,
+  name: "Electronics",
+  slug: "electronics"
+}
+```
 
-primary: "#FF6B35"
-secondary: "#FF9F1C"
+---
 
+## Customizing Colors
+
+Edit:
+
+```text
+tailwind.config.js
+```
+
+Example:
+
+```javascript
+colors: {
+  primary: "#0F172A",
+  secondary: "#F8FAFC",
+  accent: "#3B82F6"
+}
+```
+
+---
+
+## Template Use Cases
+
+NexCart is suitable for:
+
+* Fashion Stores
+* Electronics Shops
+* Furniture Stores
+* Beauty & Cosmetics Stores
+* Lifestyle Brands
+* Digital Product Showcases
+* Multi-category Online Stores
 
 ---
 
 ## License
 
-This template is for personal and commercial projects.
+This template can be used for both personal and commercial projects in accordance with the license provided.
 
 ---
 
 ## Support
 
-For support contact:
+For support and customization inquiries:
 
-gogracetech@gmail.com
+[gogracetech@gmail.com](mailto:gogracetech@gmail.com)

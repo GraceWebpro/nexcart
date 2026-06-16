@@ -315,9 +315,8 @@ export const heroproducts = [
       longDescription:
         "Designed for comfort without sacrificing elegance, these heels are perfect for casual and semi-formal outings.",
   
-      image: [
+      images: [
         "https://images.unsplash.com/photo-1543163521-1bf539c55dd2",
-        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
       ],
   
       isBestSeller: false,
